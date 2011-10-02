@@ -168,7 +168,7 @@ class AuthorizationProvider
 
         $post_body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <authentication-context>
-  <username>{$username}w</username>
+  <username>{$username}</username>
   <password>{$password}</password>
   <validation-factors>
     <validation-factor>
@@ -191,7 +191,7 @@ class AuthorizationProvider
                 throw new \Exception('Content from server is not a valid XML.' . $response);
             }
             $token = array();
-            $token['token'] = $xmlObject->token;
+            $token['token'] = (string) $xmlObject->token;
             $token['user'] = $this->xml2arrayUser($xmlObject->user);
             return $token;
         } else
@@ -230,7 +230,7 @@ class AuthorizationProvider
                 throw new \Exception('Content from server is not a valid XML.' . $response);
             }
             $token = array();
-            $token['token'] = $xmlObject->token;
+            $token['token'] = (string) $xmlObject->token;
             $token['user'] = $this->xml2arrayUser($xmlObject->user);
             return $token;
         } else

@@ -168,7 +168,7 @@ class AuthorizationProvider
 
         $post_body = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <authentication-context>
-  <username>{$username}</username>
+  <username>{$username}w</username>
   <password>{$password}</password>
   <validation-factors>
     <validation-factor>
@@ -203,7 +203,7 @@ class AuthorizationProvider
                 { // test if the content is a valid xml
                     throw new \Exception('Content from server is not a valid XML. ' . $response);
                 }
-                throw new \Exception($xmlObject->message);
+                $this->throwReasonException($xmlObject->reason, $xmlObject->message);
             }
         }
 

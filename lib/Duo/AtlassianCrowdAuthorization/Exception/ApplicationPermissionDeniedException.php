@@ -17,9 +17,9 @@
 
 namespace Duo\AtlassianCrowdAuthorization\Exception;
  
-class ApplicationAccessDeniedException extends \Exception {
+class ApplicationPermissionDeniedException extends \Exception {
 
-    public function __construct($message = 'User does not have access to a particular application', $code = null, $previous = null)
+    public function __construct($message = 'Application does not have permission to perform the operation', $code = null, $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
